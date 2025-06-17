@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,14 +6,11 @@
   <title>Asistente Virtual Sofía</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    /* ----------  RESET BÁSICO  ---------- */
-    * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
     }
 
-    /* ----------  CONTENEDOR PRINCIPAL  ---------- */
     #sofia-container {
       position: fixed;
       bottom: 20px;
@@ -24,7 +22,6 @@
       z-index: 9999;
     }
 
-    /* ----------  BOCADILLO INICIAL  ---------- */
     #sofia-bubble {
       background: #ffffff;
       padding: 10px 14px;
@@ -35,25 +32,24 @@
       transition: transform .25s ease;
     }
 
-    /* ----------  AVATAR  ---------- */
     #sofia-avatar {
-      width: 100px;
+      width: 130px;
       height: auto;
       animation: float 3s ease-in-out infinite alternate;
     }
+
     @keyframes float {
       0%   { transform: translateY(0); }
       50%  { transform: translateY(-8px); }
       100% { transform: translateY(0); }
     }
 
-    /* ----------  BURBUJA GRANDE (CHAT)  ---------- */
     #sofia-dialog {
       position: fixed;
-      bottom: 120px;          /* aparece sobre Sofía */
+      bottom: 140px;
       right: 20px;
-      width: 320px;
-      max-height: 420px;
+      width: 340px;
+      height: 500px;
       background: #ffffff;
       border-radius: 14px;
       box-shadow: 0 4px 18px rgba(0,0,0,0.18);
@@ -63,12 +59,11 @@
       transition: transform .35s ease;
       z-index: 10000;
     }
-    /* Cuando se agrega la clase “open”, la burbuja se expande con efecto pop-up */
+
     #sofia-dialog.open {
       transform: scale(1);
     }
 
-    /* Botón cerrar (X) */
     #close-btn {
       position: absolute;
       top: 6px; right: 10px;
@@ -76,22 +71,23 @@
       color: #999;
       cursor: pointer;
       user-select: none;
+      z-index: 10001;
     }
-    #close-btn:hover { color: #555; }
+
+    #close-btn:hover {
+      color: #555;
+    }
   </style>
 </head>
 <body>
 
-<!-- CONTENEDOR SOFÍA (clic = abre burbuja) -->
 <div id="sofia-container" onclick="toggleDialog()">
   <div id="sofia-bubble">¡Hola! ¿Necesitás ayuda?</div>
   <img id="sofia-avatar" src="sofia.png" alt="Sofía" />
 </div>
 
-<!-- BURBUJA Chat DocsBot (inicialmente oculta) -->
 <div id="sofia-dialog">
   <span id="close-btn" onclick="toggleDialog(event)">✕</span>
-  <!-- Iframe DocsBot -->
   <iframe 
     src="https://docsbot.ai/iframe/9fesSLcl9G7U1H93RE6v/7HNE9QJESiOYeCyyemk8"
     width="100%"
@@ -102,12 +98,11 @@
 </div>
 
 <script>
-  /* ----------  ABRIR / CERRAR BURBUJA  ---------- */
   function toggleDialog(evt) {
-    // si viene del botón X, evitamos que el clic se propague al contenedor
     if (evt) evt.stopPropagation();
     const dialog = document.getElementById('sofia-dialog');
     dialog.classList.toggle('open');
+    document.getElementById('sofia-bubble').style.display = 'none';
   }
 </script>
 
