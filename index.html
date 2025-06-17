@@ -20,14 +20,6 @@
       gap: 10px;
       cursor: pointer;
       z-index: 9999;
-      animation: bounceIn 1s ease;
-    }
-
-    @keyframes bounceIn {
-      0% { transform: scale(0.5) translateY(100px); opacity: 0; }
-      60% { transform: scale(1.05) translateY(-10px); opacity: 1; }
-      80% { transform: scale(0.95) translateY(5px); }
-      100% { transform: scale(1) translateY(0); }
     }
 
     #sofia-bubble {
@@ -39,40 +31,16 @@
       color: #333;
     }
 
-    #sofia-avatar-container {
-      position: relative;
-      width: 130px;
-    }
-
     #sofia-avatar {
-      width: 100%;
+      width: 130px;
       height: auto;
       animation: float 3s ease-in-out infinite alternate;
     }
 
     @keyframes float {
       0%   { transform: translateY(0); }
-      50%  { transform: translateY(-6px); }
+      50%  { transform: translateY(-8px); }
       100% { transform: translateY(0); }
-    }
-
-    /* Parpadeo simulado: capa negra semitransparente que cruza */
-    #sofia-eyelid {
-      position: absolute;
-      top: 20%;
-      left: 0;
-      width: 100%;
-      height: 20%;
-      background-color: rgba(0,0,0,0.1);
-      animation: blink 6s infinite;
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    @keyframes blink {
-      0%, 92%, 100% { height: 0%; opacity: 0; }
-      95% { height: 20%; opacity: 1; }
-      97% { height: 0%; opacity: 0; }
     }
 
     #sofia-dialog {
@@ -114,10 +82,7 @@
 
 <div id="sofia-container" onclick="toggleDialog()">
   <div id="sofia-bubble">¡Hola! ¿Necesitás ayuda?</div>
-  <div id="sofia-avatar-container">
-    <img id="sofia-avatar" src="sofia.png" alt="Sofía" />
-    <div id="sofia-eyelid"></div>
-  </div>
+  <img id="sofia-avatar" src="sofia.png" alt="Sofía" />
 </div>
 
 <div id="sofia-dialog">
