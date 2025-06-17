@@ -2,14 +2,49 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />  <!-- Responsive design ✅ -->
   <title>Asistente Virtual Sofía</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    /* (Aquí irán los estilos CSS internos) */
+    body {
+      margin: 0;
+      padding: 0;
+      background: white;
+      font-family: sans-serif;
+    }
+
+    #sofia-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      align-items: flex-end;
+      gap: 10px;
+      z-index: 9999;
+    }
+
+    #sofia-bubble {
+      background: #ffffff;
+      padding: 10px 14px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      font-size: 14px;
+      color: #333;
+    }
+
+    #sofia-avatar {
+      width: 100px;
+      height: auto;
+      animation: float 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes float {
+      0%   { transform: translateY(0); }
+      50%  { transform: translateY(-8px); }
+      100% { transform: translateY(0); }
+    }
   </style>
 </head>
 <body>
-  <!-- Contenedor fijo para Sofía en esquina inferior derecha -->
   <div id="sofia-container">
     <div id="sofia-bubble">¡Hola! ¿Necesitás ayuda?</div>
     <img id="sofia-avatar" src="sofia.png" alt="Sofía" />
