@@ -7,7 +7,7 @@
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
     #sofia-container {
@@ -34,14 +34,21 @@
     #sofia-avatar {
       width: 130px;
       height: auto;
+      animation: float 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes float {
+      0%   { transform: translateY(0); }
+      50%  { transform: translateY(-8px); }
+      100% { transform: translateY(0); }
     }
 
     #sofia-dialog {
       position: fixed;
-      bottom: 140px;
+      bottom: 160px;
       right: 20px;
-      width: 360px;
-      height: 640px;
+      width: 420px;
+      height: 500px;
       background: #ffffff;
       border-radius: 14px;
       box-shadow: 0 4px 18px rgba(0,0,0,0.18);
@@ -63,26 +70,12 @@
       font-size: 18px;
       color: #999;
       cursor: pointer;
+      user-select: none;
       z-index: 10001;
     }
 
     #close-btn:hover {
-      color: #333;
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-      #sofia-container {
-        display: none;
-      }
-
-      #sofia-dialog {
-        bottom: 0;
-        right: 0;
-        width: 100vw;
-        height: 100vh;
-        border-radius: 0;
-      }
+      color: #555;
     }
   </style>
 </head>
@@ -90,7 +83,7 @@
 
 <div id="sofia-container" onclick="toggleDialog()">
   <div id="sofia-bubble">¡Hola! ¿Necesitás ayuda?</div>
-  <img id="sofia-avatar" src="https://lguillermon.github.io/sofia/sofia.png" alt="Sofía" />
+  <img id="sofia-avatar" src="sofia.png" alt="Sofía" />
 </div>
 
 <div id="sofia-dialog">
